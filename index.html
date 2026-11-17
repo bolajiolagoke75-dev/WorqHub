@@ -43,5 +43,19 @@ if(search){
 const joinBtn = document.querySelector('button');
 if(joinBtn){ joinBtn.addEventListener('click', ()=>{ alert('Welcome Pro! Fill your profile to join WorqHub'); }); }
 </script>
+<script>
+setInterval(function(){
+  document.querySelectorAll('button').forEach(function(b){
+    if(b.textContent.includes('Hire') && b.getAttribute('onclick')){
+      b.removeAttribute('onclick');
+      b.onclick = function(){
+        var name = b.textContent.replace('Hire ','').trim();
+        var msg = 'Hello WorqHub! I want to hire ' + name;
+        window.open('https://wa.me/2349134265843?text=' + encodeURIComponent(msg), '_blank');
+      };
+    }
+  });
+}, 500);
+</script>
 </body>
 </html>
